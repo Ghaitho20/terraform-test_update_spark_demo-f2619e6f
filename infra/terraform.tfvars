@@ -1,0 +1,5 @@
+aws_region              = "us-east-1"
+scripts_bucket_base_name = "glue-scripts"
+output_bucket_base_name  = "glue-output"
+glue_role_base_name      = "glue-job-role"
+glue_job_base_name       = "count-numbers-job"
