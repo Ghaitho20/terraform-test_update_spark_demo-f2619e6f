@@ -13,12 +13,27 @@ variable "output_bucket_base_name" {
   type        = string
 }
 
+variable "archive_bucket_base_name" {
+  description = "Base name for the archive CSV bucket"
+  type        = string
+}
+
 variable "glue_role_base_name" {
   description = "Base name for the Glue IAM role"
   type        = string
 }
 
+variable "glue_archive_role_base_name" {
+  description = "Base name for the additional Glue IAM role"
+  type        = string
+}
+
 variable "glue_job_base_name" {
   description = "Base name for the Glue job"
+  type        = string
+}
+
+variable "glue_archive_job_base_name" {
+  description = "Base name for the additional Glue job"
   type        = string
 }

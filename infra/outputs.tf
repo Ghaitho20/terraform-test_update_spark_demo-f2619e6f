@@ -38,16 +38,45 @@ output "output_bucket_regional_domain_name" {
   value = aws_s3_bucket.output.bucket_regional_domain_name
 }
 
+output "archive_bucket_name" {
+  value = aws_s3_bucket.archive.bucket
+}
+
+output "archive_bucket_arn" {
+  value = aws_s3_bucket.archive.arn
+}
+
+output "archive_bucket_domain_name" {
+  value = aws_s3_bucket.archive.bucket_domain_name
+}
+
+output "archive_bucket_regional_domain_name" {
+  value = aws_s3_bucket.archive.bucket_regional_domain_name
+}
+
 output "glue_test_script_s3_uri" {
   value = "s3://${aws_s3_bucket.scripts.bucket}/${aws_s3_object.glue_test_script.key}"
+}
+
+output "glue_archive_test_script_s3_uri" {
+  value = "s3://${aws_s3_bucket.scripts.bucket}/${aws_s3_object.glue_archive_test_script.key}"
 }
 
 output "glue_test_script_arn" {
   value = aws_s3_object.glue_test_script.arn
 }
 
+output "glue_archive_test_script_arn" {
+  value = aws_s3_object.glue_archive_test_script.arn
+}
+
 output "glue_test_script_etag" {
   value     = aws_s3_object.glue_test_script.etag
+  sensitive = true
+}
+
+output "glue_archive_test_script_etag" {
+  value     = aws_s3_object.glue_archive_test_script.etag
   sensitive = true
 }
 
@@ -59,10 +88,26 @@ output "glue_role_arn" {
   value = aws_iam_role.glue.arn
 }
 
+output "glue_archive_role_name" {
+  value = aws_iam_role.glue_archive.name
+}
+
+output "glue_archive_role_arn" {
+  value = aws_iam_role.glue_archive.arn
+}
+
 output "glue_job_name" {
   value = aws_glue_job.count_numbers.id
 }
 
 output "glue_job_arn" {
   value = aws_glue_job.count_numbers.arn
+}
+
+output "glue_archive_job_name" {
+  value = aws_glue_job.archive_numbers.id
+}
+
+output "glue_archive_job_arn" {
+  value = aws_glue_job.archive_numbers.arn
 }
